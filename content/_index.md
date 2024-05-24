@@ -1,5 +1,5 @@
 ---
-title : "Development & Deployment static website to AWS Cloud"
+title : "Create a complete project with Terraform and AWS services"
 date :  "`r Sys.Date()`" 
 weight : 1 
 chapter : false
