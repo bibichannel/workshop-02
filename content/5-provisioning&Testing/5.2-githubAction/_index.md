@@ -12,11 +12,11 @@ Với việc provisioning infrastructure trên github action thì dễ hơn, b�
 - Chọn **Actions**, nhấn vào **Deploy Infracstructure** rồi chọn **Run workflow**.
 - Chọn các tham số cần thiết cho nhu cầu của bạn và nhấn **run workflow**.
 
-![image](/images/5-provisioning&Testing/5.2-gihubAction/001-gihubAction.png)
+![image](/images/5-provisioning&Testing/5.2-githubAction/001-githubAction.png)
 
 Bạn có thể truy cập để xem chi tiết, ở đây mình chỉ chạy **terraform plan**.
 
-![image](/images/5-provisioning&Testing/5.2-gihubAction/002-gihubAction.png)
+![image](/images/5-provisioning&Testing/5.2-githubAction/002-githubAction.png)
 
 Chọn **apply** cho **Selecting actions for terraform** và chạy lại, check kết quả như ở [bước 5.1](../../5-provisioning&Testing/5.1-local/_index.vi.md).
 
