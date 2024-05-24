@@ -7,19 +7,20 @@ chapter : false
 
 ### Overview
 
-Với [Workshop 01](https://bibichannel.github.io/workshop-01/vi/) của mình là hướng dẫn bạn phát triển và triển khai tự động một trang web tĩnh trên AWS cloud với các dịch vụ Cloud9, S3, Codepiple, Cloudfront, Route53,...
+With [Workshop 01](https://bibichannel.github.io/workshop-01/), we guide you to develop and automatically deploy a static website on AWS cloud using services like Cloud9, S3, CodePipeline, CloudFront, Route53, etc.
 
-Thì với Worksop 02 này chúng ta cùng tìm hiểu về cách làm sao có thể provisioning infracstructure trên aws dưới dạng mã bằng một công cụ mã nguồn mở là Terraform do HashiCorp phát triển, cùng với đó là cách kết hợp các dịch vụ serverless, CI/CD, mornitoring và management của AWS.
+In Workshop 02, we will explore how to provision infrastructure on AWS as code using an open-source tool, Terraform, developed by HashiCorp. Additionally, we will look at how to integrate AWS serverless services, CI/CD, monitoring, and management.
 
-Cùng xem diagram dưới đây để hình dung ra bức tranh toàn cảnh của workshop này.
+Let's take a look at the diagram below to get an overview of this workshop.
 
 
 ![IMAGE](/images/1-introduce/001-introduce.png)
 
-### Nội dung
-- [1. Giới thiệu](./1-introduce/)
-- [2. Điều kiện tiên quyết](./2-prerequisites/)
-- [3. Chuẩn bị repository phía gibhub](./3-setupGithub/)
-- [4. Terraform và những điều cần biết](./4-knowledgeTerraform/)
-- [5. Cung cấp cơ sở hạ tầng và kiểm tra ](./5-provisioning&Testing/)
-- [6. Dọn dẹp tài nguyên](./6-cleanup/)
+### Content
+
+- [1. Introduction](./1-introduce/)
+- [2. Prerequisites](./2-prerequisites/)
+- [3. Setting up the repository on GitHub](./3-setupGithub/)
+- [4. Terraform and what you need to know](./4-knowledgeTerraform/)
+- [5. Provisioning infrastructure and testing](./5-provisioning&Testing/)
+- [6. Cleaning up resources](./6-cleanup/)

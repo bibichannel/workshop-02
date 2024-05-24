@@ -1,83 +1,83 @@
 ---
-title : "Tạo User Groups và IAM User"
+title : "Create User Groups and IAM User"
 date : "`r Sys.Date()`"
 weight : 1
 chapter : false
 pre : " <b> 2.1 </b> "
 ---
 
-Trước khi tạo **IAM User** ta sẽ tạo một **User groups** cấp policies cần thiết, việc tạo user groups giúp ta dễ dàng kiểm soát tập trung các user, phân loại user theo vai trò trong tổ chức, cũng như việc cấp quyền, thêm bớt các user một cách linh hoạt.
+Before creating an **IAM User**, we will create a **User Group** with the necessary policies. Creating user groups helps us easily control users centrally, classify users according to their roles in the organization, and flexibly grant and revoke permissions.
 
-Tiếp theo IAM User gán vào User groups chúng ta vừa tạo là xong. User mới này sẽ kế thừa các quyền từ User groups
+Next, we assign the IAM User to the User Group we just created. This new user will inherit the permissions from the User Group.
 
-Chúng ta sẽ sử dụng user này để thực hiện uỷ quyền cho terraform dưới local của chúng ta, giúp ta có thể sử dụng terraform để test cấu hình trên aws.
+We will use this user to authorize Terraform locally, allowing us to use Terraform to test configurations on AWS.
 
-Truy cập vào [IAM console](https://us-east-1.console.aws.amazon.com/iam/home?region=us-east-1#/home):
-- Chọn **User groups**.
-- Nhấn vào **Create group**.
+Access the [IAM console](https://us-east-1.console.aws.amazon.com/iam/home?region=us-east-1#/home):
+- Select **User groups**.
+- Click on **Create group**.
 
 ![image](/images/2-prerequisites/2.1-createIAM/001-createIAM.png)
 ![image](/images/2-prerequisites/2.1-createIAM/001.1-createIAM.png)
 
-- Chúng ta sẽ tạo group có tên là `DevOpsGroup`.
+- We will create a group named `DevOpsGroup`.
 
 ![image](/images/2-prerequisites/2.1-createIAM/002-createIAM.png)
 
-- Ở phần **Attach permissions policies** chọn policies `AdministratorAccess`.
+- In the **Attach permissions policies** section, select the `AdministratorAccess` policy.
 
 ![image](/images/2-prerequisites/2.1-createIAM/003-createIAM.png)
 
-- Nhấn **Create user group**.
+- Click **Create user group**.
 
 ![image](/images/2-prerequisites/2.1-createIAM/004-createIAM.png)
 
 {{% notice note%}}
-**Việc chọn policy AdministratorAccess**. Vì workshop này mục tiêu không phải là về bảo mật nên để cho nhanh mình sẽ sử dụng quyền này. Mình không khuyến khích các bạn sử dụng quyền trên vì nó có đặc quyền khá rộng. Hãy tự tạo cho mình policy với các quyền giới hạn cần thiết cho việc bảo mật bạn nhé.
+**Regarding selecting the AdministratorAccess policy**. Since the goal of this workshop is not security, I will use this permission for convenience. I do not encourage you to use this wide-ranging privilege. Create a policy with the necessary limited permissions for better security.
 
 {{% /notice %}}
 
-- Tiếp theo ta sẽ tiến hành tạo **IAM User**.
-- Nhấn chọn **User** và click vào **Create user**.
-- Nhập tên user là `terraform`.
-- Chọn **Next**.
+- Next, we will create an **IAM User**.
+- Select **Users** and click on **Create user**.
+- Enter the user name as `terraform`.
+- Select **Next**.
 
 ![image](/images/2-prerequisites/2.1-createIAM/005-createIAM.png)
 ![image](/images/2-prerequisites/2.1-createIAM/005.1-createIAM.png)
 
-- Ở phần **Set permissions** chọn options **Add user to group**.
-- Chọn `DevOpsGroup` ta mới tạo vừa nãy.
-- Chọn **Next** và chọn **Create User**.
+- In the **Set permissions** section, choose **Add user to group**.
+- Select the `DevOpsGroup` we just created.
+- Choose **Next** and then **Create User**.
 
 ![image](/images/2-prerequisites/2.1-createIAM/006-createIAM.png)
 
-- Giao diện sau khi tạo xong user.
+- Interface after creating the user.
 
 ![image](/images/2-prerequisites/2.1-createIAM/007-createIAM.png)
 
-- Tiếp theo ta sẽ tạo **Access key** cho user để sử dụng user này vơi AWS CLI.
-- Click vào `terraform` user ta vừa tạo, chọn mục **Sercurity Credentials**.
+- Next, we will create an **Access key** for the user to use with AWS CLI.
+- Click on the `terraform` user we just created, select the **Security Credentials** tab.
 
 ![image](/images/2-prerequisites/2.1-createIAM/008-createIAM.png)
 
-- Cuộn chuột xuống phần **Access keys** ta nhấn **Create access keys**.
+- Scroll down to the **Access keys** section and click **Create access key**.
 
 ![image](/images/2-prerequisites/2.1-createIAM/009-createIAM.png)
 
-- **Use case** ta chọn **Command Line Interface (CLI)**.
+- For **Use case**, select **Command Line Interface (CLI)**.
 
 ![image](/images/2-prerequisites/2.1-createIAM/010-createIAM.png)
 
-- Tích **I understand the above recommendation and want to proceed to create an access key** và chọn **Next**.
+- Check **I understand the above recommendation and want to proceed to create an access key** and select **Next**.
 
 ![image](/images/2-prerequisites/2.1-createIAM/011-createIAM.png)
 
-- Ở phần **Set description tag** nhập `Check the terraform code call aws api`
-- Chọn **Create access key**
+- In the **Set description tag** section, enter `Check the terraform code call aws api`.
+- Click **Create access key**.
 
 ![image](/images/2-prerequisites/2.1-createIAM/012-createIAM.png)
 
-- Chọn **Download access key .csv**
+- Select **Download access key .csv**.
 
 ![image](/images/2-prerequisites/2.1-createIAM/013-createIAM.png)
 
-- Vậy là bạn đã hoàn thành xong bước tạo **User groups** và **IAM user**, hãy đến với bước làm tiếp theo nhé.
+- You have now completed creating the **User Group** and **IAM User**. Let's move on to the next step.

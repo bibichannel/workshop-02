@@ -6,7 +6,7 @@ chapter : false
 pre : " <b> 5. </b> "
 ---
 
-Ở phần này mình sẽ hướng dẫn các bạn chạy code trên Local và trên Git Action.
+In this part, I will guide you to run code on Local and on Git Action.
 
 ### Content
 - [Local](5.1-local/)

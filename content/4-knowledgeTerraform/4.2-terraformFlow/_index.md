@@ -6,14 +6,14 @@ chapter : false
 pre : " <b> 4.2 </b> "
 ---
 
-Ở phần trước ta cũng đã tìm hiểu sơ bộ về các thành phần terraform rồi, thì ở phần này mình sẽ nói chi tiết hơn về source code terraform mình đã cung cấp qua workshop này.
+In the previous section, we briefly explored the components of Terraform. Now, let's delve into more detail about the Terraform source code provided in this workshop.
 
-Mình tổ chức việc tạo các resources trong terraform theo dạng module để dễ dàng quản lý. Có tất cả là 11 module.
-- **VPC**: chứa các resources cơ bản tạo nên một VPC trong cloud như: subnet, route table, security groups,...
+I've organized the creation of resources in Terraform into modules for easy management. There are a total of 11 modules:
 
-- **ALB, Cloudwatch, CodeBuild, Codepipeline, ECR, ECS, Endpoint. EventBridge, S3, SNS**: đọc tên thôi thì bạn cũng có thể biết là cung cấp cho services gì rồi đúng không.
+- **VPC**: Contains basic resources to create a VPC in the cloud, such as subnets, route tables, security groups, etc.
 
-Trong mỗi modlue sẽ có các file **main.tf**, **variables.tf**, **output.tf** và **role.tf** (chứa resource tạo permision cho services, tuỳ resource có cần hay không). Về công dụng của các file thì mình đã nêu ở [phần 4.1](../../4-knowledgeTerraform/4.1-overview/_index.vi.md).
+- **ALB, Cloudwatch, CodeBuild, Codepipeline, ECR, ECS, Endpoint. EventBridge, S3, SNS**: Just by reading the names, you can probably guess which services they provide.
 
-**Vậy làm sao để bạn có thể tìm thấy các resouces cần thiết, các argument và atribute cho block?** Bạn hãy tìm nó tại đây: [aws provider registry docs](https://registry.terraform.io/providers/hashicorp/aws/latest/docs). 
-Đây là document mới nhất thời điểm hiện tại mình viết workshop này, trên đây có tất cả thông tin để bạn có thể viết code terraform và tạo các services bạn muốn.
+Each module will have the following files: **main.tf**, **variables.tf**, **output.tf**, and **role.tf** (contains resources to create permissions for services, depending on whether the resource requires it or not). Regarding the purpose of each file, I've outlined it in [section 4.1](../../4-knowledgeTerraform/4.1-overview/_index.vi.md).
+
+**So how do you find the necessary resources, arguments, and attributes for each block?** You can find them here: [AWS Provider Registry Docs](https://registry.terraform.io/providers/hashicorp/aws/latest/docs). This is the latest documentation available at the time I wrote this workshop. It contains all the information you need to write Terraform code and create the services you want.

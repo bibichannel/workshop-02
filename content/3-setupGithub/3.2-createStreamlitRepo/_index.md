@@ -6,21 +6,22 @@ chapter : false
 pre : " <b> 3.2 </b> "
 ---
 
-#### Source code bạn dùng cho phần này sẽ ở đây
+#### The source code for this part is available here:
+
  - [streamlit-app](https://github.com/bibichannel/streamlit-app).
 
-#### Bạn có thể fork thẳng từ repo của mình về
-- Với **Repository name** là tên trùng với tên bạn đặt cho biến **YOUR_GITHUB_REPOSITORY** ở trong file **terraform-deploy.yml** của repository bạn tạo ở [bước 3.1](../../3-setupGithub/3.1-createTerraformRepo/_index.vi.md)
+#### You can fork it directly from my repository:
+- With the **Repository name** matching the one you set for the **YOUR_GITHUB_REPOSITORY** variable in the **terraform-deploy.yml** file of the repository you created in [step 3.1](../../3-setupGithub/3.1-createTerraformRepo/_index.md)
 
-- Nhấn **Create fork**.
+- Click **Create fork**.
 
-#### Chúng ta cùng tìm hiểu sơ qua các thành phần trong repository này
-Cây thư mục của repo này như sau:
+#### Let's briefly explore the components in this repository
+The directory structure of this repo is as follows:
 
 ![IMAGE](/images/3-setupGithub/3.2-createStreamlitRepo/001-createStreamlitRepo.png)
 
-1. **Streamlit** là một open-source app framework giúp ta tạo nhanh một website thuần tuý bằng python không cần có kinh nghiệm front-end.
-2. **Dockerfile** là một file để build source code thành image với nội dung như sau:
+1. **Streamlit** is an open-source app framework that allows you to create websites quickly using Python without needing frontend experience.
+2. **Dockerfile** is a file to build the source code into an image with the following content:
 ```Dockerfile
 FROM public.ecr.aws/docker/library/python:3.9.19-slim-bullseye
 
@@ -35,15 +36,15 @@ EXPOSE 8501
 ENTRYPOINT ["streamlit", "run", "main.py", "--server.port=8501", "--server.address=0.0.0.0"]
 ```
 
-- Ở đây mình sẽ lấy image base được build từ public registry của aws.
-**Nếu sử dụng images từ docker registry có được không?** Thì trong quá trình mình làm, mình đã sử dụng images được lấy từ **docker regsitry**, nhưng mình nhận ngay một lỗi như sau: 
+- Here I'm using a base image built from the AWS public registry.
+**Can I use images from the docker registry?** During my work, I tried to use images from the **docker registry**, but I encountered an error immediately:
     - "*toomanyrequests: You have reached your pull rate limit. You may increase the limit by authenticating and upgrading: https://www.docker.com/increase-rate-limit*"
 
-- Vì docker giới hạn việc pull images từ public registry của nó, nó sử dụng địa chỉ IP để xác thực người dùng và giới hạn tốc độ kéo dựa trên địa chỉ IP. Đối với người dùng ẩn danh, giới hạn tốc độ được đặt thành 100 lần pull mỗi 6 giờ cho mỗi địa chỉ IP.
-Nên ta sẽ sử dụng Amazon ECR public registry để pull image.
+- Docker limits the pulling of images from its public registry, it uses the IP address to authenticate users and limits the pulling speed based on the IP address. For anonymous users, the pulling limit is set to 100 pulls every 6 hours per IP address.
+So, we will use the Amazon ECR public registry to pull the image.
 
-3. **buildspec.yml** là file cho **AWS CodeBuild** chạy build. Bạn có thể tham khảo thêm các thành phần trong **buildspec file** tại [Build specification reference for CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html).
-- File có nội dung như sau:
+3. **buildspec.yml** is the file for **AWS CodeBuild** to run the build. You can refer to more components in the **buildspec file** at [Build specification reference for CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html).
+- The file has the following content:
 ```yml
 version: 0.2
 
@@ -74,7 +75,7 @@ artifacts:
   files: imagedefinitions.json
 ```
 
-- Trong quá trình build sẽ có 3 phase:
-  - **pre_build**: thực hiện login vào **AWS Elastic Container Registry**.
-  - **build**: build image và gắn tags. Mình sẽ gắn 2 tags cho image được build ra.
-  - **post_build**: push image lên **AWS ECR** và tạo artifact **imagedefinitions.json** chứa thông tin của **container name** và **uri container**, dùng cho việc deploy lên ECS.
+- During the build process, there will be 3 phases:
+  - **pre_build**: performs login to the **AWS Elastic Container Registry**.
+  - **build**: builds the image and tags it. I will assign 2 tags to the built image.
+  - **post_build**: pushes the image to **AWS ECR** and creates an artifact **imagedefinitions.json** containing information about the **container name** and **container URI**, used for deploying to ECS.

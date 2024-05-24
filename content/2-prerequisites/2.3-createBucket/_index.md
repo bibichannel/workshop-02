@@ -1,24 +1,23 @@
 ---
-title : "Create bucket"
+title : "Create S3 bucket"
 date : "`r Sys.Date()`"
 weight : 3
 chapter : false
 pre : " <b> 2.3 </b> "
 ---
 
-Chúng ta sẽ tạo 1 bucket dùng để lưu trữ state file cho terraform. Mình sẽ giải thích chi tiết hơn khi chúng ta vào [phần 4](../../4-knowledgeTerraform/)
+We will create a bucket to store the state file for Terraform. I'll provide a detailed explanation in [section 4](../../4-knowledgeTerraform/4.1-overview/_index.md).
 
-1. Trong giao diện Create bucket
-- **AWS reigon** ta chọn S3 bucket tại region mà ta đang làm lab. Hiện tại mình đang làm lab tại **N.Virginia (us-east-1)** region.
-- **Bucket Type** trong khuôn khổ bài lab ta chọn **General purpose** là đủ.
-- Nhập Bucket name, phải nhập tên duy nhất, bạn có thể chọn tùy ý ở đây mình tạo bucket với tên là `backend-tf-bibichannel`
+1. In the Create bucket interface:
+- **AWS region**: Choose the S3 bucket region based on the region where we are conducting the lab. Currently, I'm conducting the lab in the **N. Virginia (us-east-1)** region.
+- **Bucket Type**: For the scope of this lab, we'll select **General purpose**.
+- Enter a Bucket name, ensuring it's unique. You can choose any name; here, I'll create a bucket named `backend-tf-bibichannel`.
 
 {{%notice info%}}
-AWS S3 có thể truy cập public và AWS S3 cung cấp cho chúng ta cách access vào bucket và object của nó bằng API REST.
-Về cơ bản, đường dẫn cần phải tuân thủ DNS và không thể có hai tên miền giống nhau. Vì vậy, bucket names cần phải là duy nhất để truy xuất nhóm và đối tượng bằng điểm cuối REST API.
-
+AWS S3 can be accessed publicly, and it provides us with access to its buckets and objects via the REST API.
+In essence, the path must adhere to DNS and cannot have two identical domain names. Hence, bucket names need to be unique to access groups and objects through the REST API endpoint.
 {{%/notice%}}
 
 ![S3](/images/2-prerequisites/2.3-createBucket/001-createBucket.png)
 
-Ở dưới ta sẽ giữ nguyên cấu hình mặc định và click **Create bucket**.
+Below, we'll keep the default configurations and click **Create bucket**.

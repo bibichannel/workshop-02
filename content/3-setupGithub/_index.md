@@ -6,11 +6,11 @@ chapter : false
 pre : " <b> 3. </b> "
 ---
 
-Trong workshop này ta sẽ cần 2 github repo:
-1. Repository đầu tiên mình sẽ lưu terraform code để provisioning tới aws thông qua **git action**. Điều này sẽ giúp mình có thể downgrade version mỗi khi cấu hình được thay đổi bị lỗi thông qua việc quản lí version trên github. Và nó cũng giúp chúng ta cũng có thể teamwork được với nhau.
-2. Repository thứ hai mình sẽ lưu source code của streamlit app, mỗi khi push code lên repo thì nó sẽ được push event thông qua webhook để Codepipeline được trigger, build và deploy lên ECS Fargate.
+In this workshop, we'll need 2 GitHub repositories:
 
+1. The first repository will store Terraform code for provisioning resources to AWS through **Git actions**. This will allow us to downgrade versions whenever configuration changes cause issues through version management on GitHub. Additionally, it enables us to collaborate effectively.
+2. The second repository will store the source code of the Streamlit app. Whenever code is pushed to this repository, it will trigger a push event through a webhook to trigger CodePipeline, which will build and deploy it to ECS Fargate.
 
-### Nội Dung
- - [Terraform IaC đến AWS Cloud](3.1-createTerraformRepo/)
+### Contents
+ - [Terraform IaC to AWS Cloud](3.1-createTerraformRepo/)
  - [Streamlit application](3.2-createStreamlitRepo/)

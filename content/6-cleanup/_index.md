@@ -6,11 +6,14 @@ chapter : false
 pre : " <b> 7. </b> "
 ---
 
-Hãy huỷ các tài nguyên lần lượt theo list dưới đây.
+Sure, here are the steps to sequentially delete the resources:
 
-1. Sử dụng lệnh dưới đây nếu bạn sử dụng terraform ở local
+1. If you are using Terraform locally, use the following command to destroy the resources:
+
 ```bash
 terraform destroy -auto-approve
 ```
-2. Chạy workflow với tham số **detroy** ở **Selecting actions for terraform** để huỷ infrastucture đã được provisioned.
-3. Xoá repository nếu cần thiết.
+
+2. Run the workflow with the parameter **destroy** in **Selecting actions for terraform** to delete the provisioned infrastructure.
+
+3. Delete the repository if necessary.

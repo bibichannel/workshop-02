@@ -6,21 +6,21 @@ chapter : false
 pre : " <b> 5.2 </b> "
 ---
 
-Với việc provisioning infrastructure trên github action thì dễ hơn, bạn không cần phải chuẩn bị gì cả.
+With provisioning infrastructure on GitHub Actions, it's easier, and you don't need to prepare anything.
 
-- Truy cập repository terraform bạn đã tạo ở [bước 3.1](../../3-setupGithub/3.1-createTerraformRepo/_index.vi.md).
-- Chọn **Actions**, nhấn vào **Deploy Infracstructure** rồi chọn **Run workflow**.
-- Chọn các tham số cần thiết cho nhu cầu của bạn và nhấn **run workflow**.
+- Access the Terraform repository you created in [step 3.1](../../3-setupGithub/3.1-createTerraformRepo/_index.vi.md).
+- Select **Actions**, click on **Deploy Infrastructure**, then choose **Run workflow**.
+- Choose the necessary parameters for your needs and click **Run workflow**.
 
 ![image](/images/5-provisioning&Testing/5.2-githubAction/001-githubAction.png)
 
-Bạn có thể truy cập để xem chi tiết, ở đây mình chỉ chạy **terraform plan**.
+You can access to view details, here I'm only running **terraform plan**.
 
 ![image](/images/5-provisioning&Testing/5.2-githubAction/002-githubAction.png)
 
-Chọn **apply** cho **Selecting actions for terraform** và chạy lại, check kết quả như ở [bước 5.1](../../5-provisioning&Testing/5.1-local/_index.vi.md).
+Select **apply** for **Selecting actions for terraform** and rerun, check the result as in [step 5.1](../../5-provisioning&Testing/5.1-local/_index.md).
 
 {{%notice info%}}
-Ở đây mình để chạy thử công. Nhưng trong thực tế thì sẽ chạy tự động mỗi khi code terraform được sửa và push. Bạn có thể thử thêm điều kiện trigger trong *.github/workflows/terraform-deploy.yml* file.
+Here, I'm running a test run. But in reality, it will automatically run whenever the Terraform code is edited and pushed. You can try adding trigger conditions in the *.github/workflows/terraform-deploy.yml* file.
 
 {{%/notice%}}

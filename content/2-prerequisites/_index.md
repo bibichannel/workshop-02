@@ -6,14 +6,14 @@ chapter : false
 pre : " <b> 2. </b> "
 ---
 
-Để thực hành được bài lab này các bạn cần phải chuẩn bị cho mình những thứ sau đây để code của chúng ta hoạt động trơn tru.
-Một điều lưu ý nữa là mình sẽ sử dụng region `us-east-1` xuyên suốt workshop này.
+To practice this lab, you need to prepare the following items to ensure our code runs smoothly.
 
-### Nội dung
-- [Tạo User Groups và IAM User](2.1-createIAM/)
-- [Tạo connection OIDC](2.2-createOIDC/)
-- [Tạo S3 bucket](2.3-createBucket/)
-- [Tạo CodeStar Connection](2.4-createCodestar)
-- [Cài đặt AWS và Terraform tools](2.5-installTools/)
+One more thing to note is that I will use the `us-east-1` region throughout this workshop.
 
+### Contents
+- [Create User Groups and IAM User](2.1-createIAM/)
+- [Create OIDC connection](2.2-createOIDC/)
+- [Create S3 bucket](2.3-createBucket/)
+- [Create CodeStar Connection](2.4-createCodestar)
+- [Install AWS and Terraform tools](2.5-installTools/)
 

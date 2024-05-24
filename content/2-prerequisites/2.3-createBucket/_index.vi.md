@@ -1,5 +1,5 @@
 ---
-title : "Tạo Bucket"
+title : "Tạo S3 Bucket"
 date :  "`r Sys.Date()`" 
 weight : 3
 chapter : false
